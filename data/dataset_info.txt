@@ -1,0 +1,5 @@
+Dataset: Breast Cancer Wisconsin (Diagnostic)
+Samples: 569
+Features: 30
+Target column: label
+Classes: 0=malignant, 1=benign
