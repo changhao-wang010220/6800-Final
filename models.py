@@ -1,4 +1,5 @@
 from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.tree import DecisionTreeClassifier
 
 
@@ -37,14 +38,32 @@ def get_model(model_name, random_state=42):
             learning_rate=0.5,
             random_state=random_state,
         )
+        
 
+    '''
+    Gradient Boosting 概述：
+    Gradient Boosting 是一种逐步提升模型预测能力的集成学习方法
+
+    训练过程中，模型会依序建立多棵较简单的决策树
+    每一棵新树都会尝试弥补前面模型的预测不足
+    也就是说，后续模型会重点学习前面模型尚未处理好的错误或残差
+
+    透过不断累加这些简单模型的预测结果
+    Gradient Boosting 能够逐步降低整体误差
+    因此可以得到比单一决策树更稳定、预测能力更强的分类效果
+    '''
     if model_name == "gradient_boosting":
-        # TODO(team_member_gradient_boosting):
-        # Implement GradientBoostingClassifier here.
-
-        raise NotImplementedError(
-            "Gradient Boosting model is intentionally left for a teammate to implement."
+        # Gradient Boosting 会逐步构建由多棵浅层决策树组成的加法集成模型。
+        return GradientBoostingClassifier(
+            n_estimators=100,
+            #控制 boosting 的迭代轮数，也就是弱学习器数量。
+            learning_rate=0.1,
+            #控制每棵树对最终模型的贡献强度。
+            max_depth=3,
+            #控制每棵单独决策树的复杂度。
+            random_state=random_state,
         )
+
 
     raise ValueError(f"Unknown model name: {model_name}")
 
@@ -52,4 +71,7 @@ def get_model(model_name, random_state=42):
 def get_default_model_names():
     return [
         "decision_tree",
+        "adaboost",
+        "gradient_boosting",
     ]
+
