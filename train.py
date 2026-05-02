@@ -43,7 +43,6 @@ def train_decision_tree(data_bundle):
     """
     return fit_and_evaluate("decision_tree", data_bundle)
 
-
 def train_adaboost(data_bundle):
     """
     Train AdaBoost and return val/test metrics.
@@ -52,13 +51,10 @@ def train_adaboost(data_bundle):
 
 def train_gradient_boosting(data_bundle):
     """
-    TODO(team_member_gradient_boosting):
-    Complete the full Gradient Boosting training and evaluation flow here.
+    Train and evaluate the Gradient Boosting model.
 
     """
-    raise NotImplementedError(
-        "train_gradient_boosting is intentionally left for a teammate to implement."
-    )
+    return fit_and_evaluate("gradient_boosting", data_bundle)
 
 
 def main():
@@ -86,13 +82,11 @@ def main():
     print()
     results["adaboost"] = adaboost_output["test_metrics"]
 
-    # TODO(team_member_gradient_boosting):
-    # Uncomment after implementing train_gradient_boosting.
-    # gradient_output = train_gradient_boosting(data_bundle)
-    # print_metrics("gradient_boosting validation", gradient_output["val_metrics"])
-    # print_metrics("gradient_boosting test", gradient_output["test_metrics"])
-    # print()
-    # results["gradient_boosting"] = gradient_output["test_metrics"]
+    gradient_output = train_gradient_boosting(data_bundle)
+    print_metrics("gradient_boosting validation", gradient_output["val_metrics"])
+    print_metrics("gradient_boosting test", gradient_output["test_metrics"])
+    print()
+    results["gradient_boosting"] = gradient_output["test_metrics"]
 
     save_results(results)
 
