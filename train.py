@@ -46,14 +46,9 @@ def train_decision_tree(data_bundle):
 
 def train_adaboost(data_bundle):
     """
-    TODO(team_member_adaboost):
-    Complete the full AdaBoost training and evaluation flow here.
-
+    Train AdaBoost and return val/test metrics.
     """
-    raise NotImplementedError(
-        "train_adaboost is intentionally left for a teammate to implement."
-    )
-
+    return fit_and_evaluate("adaboost", data_bundle) 
 
 def train_gradient_boosting(data_bundle):
     """
@@ -85,13 +80,11 @@ def main():
     print()
     results["decision_tree"] = baseline_output["test_metrics"]
 
-    # TODO(team_member_adaboost):
-    # Uncomment after implementing train_adaboost.
-    # adaboost_output = train_adaboost(data_bundle)
-    # print_metrics("adaboost validation", adaboost_output["val_metrics"])
-    # print_metrics("adaboost test", adaboost_output["test_metrics"])
-    # print()
-    # results["adaboost"] = adaboost_output["test_metrics"]
+    adaboost_output = train_adaboost(data_bundle)
+    print_metrics("adaboost validation", adaboost_output["val_metrics"])
+    print_metrics("adaboost test", adaboost_output["test_metrics"])
+    print()
+    results["adaboost"] = adaboost_output["test_metrics"]
 
     # TODO(team_member_gradient_boosting):
     # Uncomment after implementing train_gradient_boosting.
