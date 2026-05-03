@@ -70,25 +70,3 @@ python train.py
 3. 训练三个基础模型
 4. 输出指标
 5. 把结果保存到 `results/metrics_summary.txt`
-
-## 小组分工
-
-### TODO(team_member_adaboost)
-
-负责实现 AdaBoost。
-
-1. 在 `models.py` 中补全 AdaBoost 模型
-2. 在 `train.py` 中补全 AdaBoost 的训练和评估流程
-3. 记录最终结果并整理成报告里的实验内容
-
-### TODO(team_member_gradient_boosting)
-
-负责实现 Gradient Boosting。
-
-1. 在 `models.py` 中补全 Gradient Boosting 模型
-2. 在 `train.py` 中补全 Gradient Boosting 的训练和评估流程
-3. 记录最终结果并整理成报告里的实验内容
-
-## 建议报告标题
-
-**A Literature Review and Experimental Comparison of Basic Boosting Methods for Tabular Classification**
